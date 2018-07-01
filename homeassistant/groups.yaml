@@ -1,0 +1,20 @@
+living_room:
+  name: Living Room
+  entities:
+    - light.living_room_1
+    - light.living_room_2
+    - light.living_room_3
+    - light.living_room_4
+bedroom:
+  name: Bedroom
+  entities:
+    - light.bedroom_1
+    - light.bedroom_2
+    - light.bedroom_3
+    - light.bedroom_4
+rooms:
+  view: yes
+  name: Rooms
+  entities:
+    - group.living_room
+    - group.bedroom

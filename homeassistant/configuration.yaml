@@ -1,0 +1,91 @@
+homeassistant:
+  name: Home
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: !secret elevation
+  unit_system: metric
+  time_zone: Europe/London
+  customize: !include customize.yaml
+
+# Enable the frontend
+frontend:
+
+# Enable configuration UI
+config:
+
+# HTTP server using Nginx proxy
+http:
+  api_password: !secret http_password
+  server_host: 127.0.0.1
+  base_url: !secret base_url
+  use_x_forwarded_for: true
+
+mqtt:
+  broker: !secret broker
+  port: 1883
+  client_id: home-assistant
+  keepalive: 60
+  username: home-assistant
+  password: !secret mqtt_password
+  protocol: 3.1
+  birth_message:
+    topic: "hass/tele/LWT"
+    payload: "Online"
+    qos: 1
+    retain: true
+  will_message:
+    topic: "hass/tele/LWT"
+    payload: "Offline"
+    qos: 1
+    retain: true
+
+media_player:
+  - platform: samsungtv
+    host: samsung
+    port: 8001
+    mac: !secret samsung_mac
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Enables support for tracking state changes over time
+recorder:
+
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+sensor:
+  # Weather prediction
+  - platform: darksky
+    api_key: !secret darksky_api
+    monitored_conditions:
+      - minutely_summary
+      - precip_intensity
+      - precip_probability
+      - temperature
+      - dew_point
+      - wind_speed
+      - cloud_cover
+      - humidity
+      - pressure
+      - visibility
+
+light: !include lights.yaml
+group: !include groups.yaml
+scene: !include scenes.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml

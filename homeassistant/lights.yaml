@@ -1,0 +1,65 @@
+- platform: mqtt
+  name: "Living room 1"
+  state_topic: "sonoff/livingroom/stat/POWER1"
+  command_topic: "sonoff/livingroom/cmnd/POWER1"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+- platform: mqtt
+  name: "Living room 2"
+  state_topic: "sonoff/livingroom/stat/POWER2"
+  command_topic: "sonoff/livingroom/cmnd/POWER2"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+- platform: mqtt
+  name: "Living room 3"
+  state_topic: "sonoff/livingroom/stat/POWER3"
+  command_topic: "sonoff/livingroom/cmnd/POWER3"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+- platform: mqtt
+  name: "Living room 4"
+  state_topic: "sonoff/livingroom/stat/POWER4"
+  command_topic: "sonoff/livingroom/cmnd/POWER4"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+
+- platform: mqtt
+  name: "Bedroom 1"
+  state_topic: "sonoff/bedroom/stat/POWER1"
+  command_topic: "sonoff/bedroom/cmnd/POWER1"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+- platform: mqtt
+  name: "Bedroom 2"
+  state_topic: "sonoff/bedroom/stat/POWER2"
+  command_topic: "sonoff/bedroom/cmnd/POWER2"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+- platform: mqtt
+  name: "Bedroom 3"
+  state_topic: "sonoff/bedroom/stat/POWER3"
+  command_topic: "sonoff/bedroom/cmnd/POWER3"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+- platform: mqtt
+  name: "Bedroom 4"
+  state_topic: "sonoff/bedroom/stat/POWER4"
+  command_topic: "sonoff/bedroom/cmnd/POWER4"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true

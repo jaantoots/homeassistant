@@ -1,0 +1,12 @@
+- name: Medium
+  entities:
+    light.living_room_1: on
+    light.living_room_2: off
+    light.living_room_3: on
+    light.living_room_4: off
+- name: TV
+  entities:
+    light.living_room_1: off
+    light.living_room_2: on
+    light.living_room_3: off
+    light.living_room_4: off
