@@ -15,7 +15,6 @@ config:
 
 # HTTP server using Nginx proxy
 http:
-  api_password: !secret http_password
   server_host: 127.0.0.1
   base_url: !secret base_url
   trusted_proxies: 127.0.0.1
