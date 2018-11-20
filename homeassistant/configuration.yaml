@@ -39,11 +39,11 @@ mqtt:
     qos: 1
     retain: true
 
-media_player:
-  - platform: samsungtv
-    host: samsung
-    port: 8001
-    mac: !secret samsung_mac
+# media_player:
+#   - platform: samsungtv
+#     host: !secret samsung_host
+#     port: 8001
+#     mac: !secret samsung_mac
 
 # Checks for available updates
 # Note: This component will send some information about your system to
