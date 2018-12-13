@@ -1,0 +1,8 @@
+- platform: mqtt
+  name: "Boiler"
+  state_topic: "sonoff/boiler/stat/POWER"
+  command_topic: "sonoff/boiler/cmnd/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true

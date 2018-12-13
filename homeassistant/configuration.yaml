@@ -68,23 +68,9 @@ map:
 # Track the sun
 sun:
 
-sensor:
-  # Weather prediction
-  - platform: darksky
-    api_key: !secret darksky_api
-    monitored_conditions:
-      - minutely_summary
-      - precip_intensity
-      - precip_probability
-      - temperature
-      - dew_point
-      - wind_speed
-      - cloud_cover
-      - humidity
-      - pressure
-      - visibility
-
+sensor: !include sensors.yaml
 light: !include lights.yaml
+switch: !include switches.yaml
 group: !include groups.yaml
 scene: !include scenes.yaml
 automation: !include automations.yaml
