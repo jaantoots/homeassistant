@@ -68,10 +68,36 @@ map:
 # Track the sun
 sun:
 
+input_number:
+    target_temp:
+        name: Target Temperature
+        min: 10
+        max: 30
+        step: 0.5
+        unit_of_measurement: "°C"
+        icon: mdi:thermometer
+
+automation:
+    - alias: "Switch boiler ON"
+      trigger:
+          platform: template
+          value_template: "{% if states('sensor.temperature') | float < states('input_number.target_temp') | float - 0.5 %}true{% endif %}"
+      action:
+          service: switch.turn_on
+          data:
+            entity_id: switch.boiler
+    - alias: "Switch boiler OFF"
+      trigger:
+          platform: template
+          value_template: "{% if states('sensor.temperature') | float > states('input_number.target_temp') | float + 0.5 %}true{% endif %}"
+      action:
+          service: switch.turn_off
+          data:
+            entity_id: switch.boiler
+
 sensor: !include sensors.yaml
 light: !include lights.yaml
 switch: !include switches.yaml
 group: !include groups.yaml
 scene: !include scenes.yaml
-automation: !include automations.yaml
 script: !include scripts.yaml
