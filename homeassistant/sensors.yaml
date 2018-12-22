@@ -14,22 +14,36 @@
     - visibility
 
 - platform: mqtt
-  name: "Raw temperature"
-  state_topic: "sonoff/dht11/tele/SENSOR"
+  name: "Raw Bedroom Temperature"
+  state_topic: "sonoff/temp_bedroom/tele/SENSOR"
   value_template: "{{ value_json['DHT11']['Temperature'] }}"
   unit_of_measurement: "°C"
   icon: mdi:thermometer
 
 - platform: mqtt
-  name: "Raw humidity"
-  state_topic: "sonoff/dht11/tele/SENSOR"
+  name: "Raw Bedroom Humidity"
+  state_topic: "sonoff/temp_bedroom/tele/SENSOR"
+  value_template: "{{ value_json['DHT11']['Humidity'] }}"
+  unit_of_measurement: "%"
+  icon: mdi:water-percent
+
+- platform: mqtt
+  name: "Raw Living room Temperature"
+  state_topic: "sonoff/temp_livingroom/tele/SENSOR"
+  value_template: "{{ value_json['DHT11']['Temperature'] }}"
+  unit_of_measurement: "°C"
+  icon: mdi:thermometer
+
+- platform: mqtt
+  name: "Raw Living room Humidity"
+  state_topic: "sonoff/temp_livingroom/tele/SENSOR"
   value_template: "{{ value_json['DHT11']['Humidity'] }}"
   unit_of_measurement: "%"
   icon: mdi:water-percent
 
 - platform: filter
   name: "Temperature"
-  entity_id: sensor.raw_temperature
+  entity_id: sensor.raw_bedroom_temperature
   icon: mdi:thermometer
   filters:
       - filter: lowpass
@@ -38,9 +52,27 @@
 
 - platform: filter
   name: "Humidity"
-  entity_id: sensor.raw_humidity
+  entity_id: sensor.raw_bedroom_humidity
   icon: mdi:water-percent
   filters:
       - filter: lowpass
+        time_constant: 20
+        precision: 2
+
+- platform: filter
+  name: "Living room Temperature"
+  entity_id: sensor.raw_living_room_temperature
+  icon: mdi:thermometer
+  filters:
+      - filter: lowpass
         time_constant: 10
+        precision: 2
+
+- platform: filter
+  name: "Living room Humidity"
+  entity_id: sensor.raw_living_room_humidity
+  icon: mdi:water-percent
+  filters:
+      - filter: lowpass
+        time_constant: 20
         precision: 2
